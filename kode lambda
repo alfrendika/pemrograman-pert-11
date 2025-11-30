@@ -1,0 +1,84 @@
+# ===== CARA LAMA (MENGGUNAKAN def) =====
+# def a(x):
+#     return x**2
+#
+# def b(x, y):
+#     return math.sqrt(x**2 + y**2)
+#
+# def c(*args):
+#     return sum(args)/len(args)
+#
+# def d(s):
+#     return "".join(set(s))
+
+# ===== CARA BARU (MENGGUNAKAN LAMBDA) =====
+
+# a) Fungsi untuk menghitung kuadrat
+a = lambda x: x**2
+
+# b) Fungsi untuk menghitung jarak (Pythagoras)
+b = lambda x, y: math.sqrt(x**2 + y**2)
+
+# c) Fungsi untuk menghitung rata-rata (tidak bisa langsung dengan lambda karena *args)
+# Solusi: gunakan lambda dengan parameter tunggal (tuple/list)
+c = lambda args: sum(args)/len(args)
+
+# d) Fungsi untuk menghapus karakter duplikat
+d = lambda s: "".join(set(s))
+
+# ===== TEST/DEMO =====
+
+print("="*50)
+print("DEMONSTRASI LAMBDA FUNCTION")
+print("="*50)
+
+# Test fungsi a (kuadrat)
+print("\n1. Fungsi a(x) - Kuadrat dari x:")
+print(f"   a(5) = {a(5)}")
+print(f"   a(10) = {a(10)}")
+
+# Test fungsi b (jarak Pythagoras)
+print("\n2. Fungsi b(x, y) - Jarak Pythagoras:")
+print(f"   b(3, 4) = {b(3, 4)}")
+print(f"   b(5, 12) = {b(5, 12)}")
+
+# Test fungsi c (rata-rata)
+print("\n3. Fungsi c(args) - Rata-rata:")
+data1 = [10, 20, 30, 40]
+data2 = [5, 15, 25, 35, 45]
+print(f"   c([10, 20, 30, 40]) = {c(data1)}")
+print(f"   c([5, 15, 25, 35, 45]) = {c(data2)}")
+
+# Test fungsi d (hapus duplikat)
+print("\n4. Fungsi d(s) - Hapus Karakter Duplikat:")
+teks1 = "programming"
+teks2 = "aabbccddee"
+print(f"   d('programming') = {d(teks1)}")
+print(f"   d('aabbccddee') = {d(teks2)}")
+
+# ===== PENGGUNAAN LAMBDA DENGAN MAP dan FILTER =====
+print("\n" + "="*50)
+print("PENGGUNAAN LAMBDA DENGAN MAP DAN FILTER")
+print("="*50)
+
+# Menggunakan map dengan lambda a
+numbers = [1, 2, 3, 4, 5]
+print(f"\n1. Map dengan lambda a (kuadrat):")
+print(f"   Input: {numbers}")
+kuadrat = list(map(a, numbers))
+print(f"   Output: {kuadrat}")
+
+# Menggunakan filter dengan lambda
+print(f"\n2. Filter bilangan kuadrat sempurna (>10):")
+hasil_filter = list(filter(lambda x: a(x) > 10, numbers))
+print(f"   Input: {numbers}")
+print(f"   Output: {hasil_filter}")
+
+# Kombinasi map dan lambda b
+print(f"\n3. Map dengan lambda b (Pythagoras):")
+koordinat = [(3, 4), (5, 12), (8, 15)]
+print(f"   Input: {koordinat}")
+jarak = list(map(lambda pair: b(pair[0], pair[1]), koordinat))
+print(f"   Output (jarak): {jarak}")
+
+print("\n" + "="*50)
