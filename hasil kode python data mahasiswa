@@ -1,0 +1,62 @@
+"C:\Users\RAHSYA ALFRENDIKA\PycharmProjects\PythonProject\.venv\Scripts\python.exe" "C:\Users\RAHSYA ALFRENDIKA\PycharmProjects\PythonProject\pemrograman pert 11.py" 
+
+==================================================
+SELAMAT DATANG DI PROGRAM DAFTAR NILAI MAHASISWA
+==================================================
+
+==================================================
+MENU UTAMA - DAFTAR NILAI MAHASISWA
+==================================================
+1. Tambah Data Mahasiswa
+2. Tampilkan Daftar Nilai
+3. Ubah Data Mahasiswa
+4. Hapus Data Mahasiswa
+5. Keluar
+==================================================
+Pilih menu (1-5): 1
+
+==================================================
+TAMBAH DATA MAHASISWA
+==================================================
+Masukkan nama mahasiswa: Rahsya Alfrendika
+Masukkan nilai: 80
+✅ Data 'Rahsya Alfrendika' berhasil ditambahkan dengan nilai 80.0 (Grade: B)
+
+==================================================
+MENU UTAMA - DAFTAR NILAI MAHASISWA
+==================================================
+1. Tambah Data Mahasiswa
+2. Tampilkan Daftar Nilai
+3. Ubah Data Mahasiswa
+4. Hapus Data Mahasiswa
+5. Keluar
+==================================================
+Pilih menu (1-5): 4
+
+======================================================================
+DAFTAR NILAI MAHASISWA
+======================================================================
+No    Nama                      Nilai      Grade     
+----------------------------------------------------------------------
+1     Rahsya Alfrendika         80.0       B         
+----------------------------------------------------------------------
+Total mahasiswa: 1
+
+Masukkan nama mahasiswa yang ingin dihapus: rahsya alfrendika
+✅ Data 'Rahsya Alfrendika' berhasil dihapus!
+
+==================================================
+MENU UTAMA - DAFTAR NILAI MAHASISWA
+==================================================
+1. Tambah Data Mahasiswa
+2. Tampilkan Daftar Nilai
+3. Ubah Data Mahasiswa
+4. Hapus Data Mahasiswa
+5. Keluar
+==================================================
+Pilih menu (1-5): 2
+
+======================================================================
+DAFTAR NILAI MAHASISWA
+======================================================================
+⚠️  Belum ada data mahasiswa!
