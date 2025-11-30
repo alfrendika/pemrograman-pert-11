@@ -1,0 +1,40 @@
+"C:\Users\RAHSYA ALFRENDIKA\PycharmProjects\PythonProject\.venv\Scripts\python.exe" "C:\Users\RAHSYA ALFRENDIKA\PycharmProjects\PythonProject\pemrograman pert 11.py" 
+==================================================
+DEMONSTRASI LAMBDA FUNCTION
+==================================================
+
+1. Fungsi a(x) - Kuadrat dari x:
+   a(5) = 25
+   a(10) = 100
+
+2. Fungsi b(x, y) - Jarak Pythagoras:
+   b(3, 4) = 5.0
+   b(5, 12) = 13.0
+
+3. Fungsi c(args) - Rata-rata:
+   c([10, 20, 30, 40]) = 25.0
+   c([5, 15, 25, 35, 45]) = 25.0
+
+4. Fungsi d(s) - Hapus Karakter Duplikat:
+   d('programming') = onpgiram
+   d('aabbccddee') = acebd
+
+==================================================
+PENGGUNAAN LAMBDA DENGAN MAP DAN FILTER
+==================================================
+
+1. Map dengan lambda a (kuadrat):
+   Input: [1, 2, 3, 4, 5]
+   Output: [1, 4, 9, 16, 25]
+
+2. Filter bilangan kuadrat sempurna (>10):
+   Input: [1, 2, 3, 4, 5]
+   Output: [4, 5]
+
+3. Map dengan lambda b (Pythagoras):
+   Input: [(3, 4), (5, 12), (8, 15)]
+   Output (jarak): [5.0, 13.0, 17.0]
+
+==================================================
+
+Process finished with exit code 0
