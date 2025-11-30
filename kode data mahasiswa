@@ -1,0 +1,158 @@
+Program Daftar Nilai Mahasiswa
+Aplikasi untuk mengelola data nilai mahasiswa dengan fungsi-fungsi dasar
+"""
+
+# List untuk menyimpan data mahasiswa
+data_mahasiswa = []
+
+
+def tambah():
+    """Fungsi untuk menambah data mahasiswa baru"""
+    print("\n" + "=" * 50)
+    print("TAMBAH DATA MAHASISWA")
+    print("=" * 50)
+
+    nama = input("Masukkan nama mahasiswa: ").strip()
+
+    # Cek apakah nama sudah ada
+    for mahasiswa in data_mahasiswa:
+        if mahasiswa['nama'].lower() == nama.lower():
+            print(f"❌ Error: Mahasiswa '{nama}' sudah terdaftar!")
+            return
+
+    try:
+        nilai = float(input("Masukkan nilai: "))
+        if nilai < 0 or nilai > 100:
+            print("❌ Error: Nilai harus antara 0-100!")
+            return
+    except ValueError:
+        print("❌ Error: Nilai harus berupa angka!")
+        return
+
+    # Tentukan grade berdasarkan nilai
+    if nilai >= 85:
+        grade = "A"
+    elif nilai >= 70:
+        grade = "B"
+    elif nilai >= 60:
+        grade = "C"
+    elif nilai >= 50:
+        grade = "D"
+    else:
+        grade = "E"
+
+    data_mahasiswa.append({
+        'nama': nama,
+        'nilai': nilai,
+        'grade': grade
+    })
+
+    print(f"✅ Data '{nama}' berhasil ditambahkan dengan nilai {nilai} (Grade: {grade})")
+
+
+def tampilkan():
+    """Fungsi untuk menampilkan semua data mahasiswa"""
+    print("\n" + "=" * 70)
+    print("DAFTAR NILAI MAHASISWA")
+    print("=" * 70)
+
+    if not data_mahasiswa:
+        print("⚠️  Belum ada data mahasiswa!")
+        return
+
+    print(f"{'No':<5} {'Nama':<25} {'Nilai':<10} {'Grade':<10}")
+    print("-" * 70)
+
+    for idx, mahasiswa in enumerate(data_mahasiswa, 1):
+        print(f"{idx:<5} {mahasiswa['nama']:<25} {mahasiswa['nilai']:<10.1f} {mahasiswa['grade']:<10}")
+
+    print("-" * 70)
+    print(f"Total mahasiswa: {len(data_mahasiswa)}")
+
+
+def hapus(nama):
+    """Fungsi untuk menghapus data berdasarkan nama"""
+    for i, mahasiswa in enumerate(data_mahasiswa):
+        if mahasiswa['nama'].lower() == nama.lower():
+            removed = data_mahasiswa.pop(i)
+            print(f"✅ Data '{removed['nama']}' berhasil dihapus!")
+            return
+
+    print(f"❌ Error: Mahasiswa '{nama}' tidak ditemukan!")
+
+
+def ubah(nama):
+    """Fungsi untuk mengubah data berdasarkan nama"""
+    for mahasiswa in data_mahasiswa:
+        if mahasiswa['nama'].lower() == nama.lower():
+            print(f"\nMengubah data '{mahasiswa['nama']}'")
+            print(f"Nilai saat ini: {mahasiswa['nilai']} (Grade: {mahasiswa['grade']})")
+
+            try:
+                nilai_baru = float(input("Masukkan nilai baru: "))
+                if nilai_baru < 0 or nilai_baru > 100:
+                    print("❌ Error: Nilai harus antara 0-100!")
+                    return
+            except ValueError:
+                print("❌ Error: Nilai harus berupa angka!")
+                return
+
+            # Tentukan grade baru
+            if nilai_baru >= 85:
+                grade_baru = "A"
+            elif nilai_baru >= 70:
+                grade_baru = "B"
+            elif nilai_baru >= 60:
+                grade_baru = "C"
+            elif nilai_baru >= 50:
+                grade_baru = "D"
+            else:
+                grade_baru = "E"
+
+            mahasiswa['nilai'] = nilai_baru
+            mahasiswa['grade'] = grade_baru
+            print(f"✅ Data berhasil diubah menjadi nilai {nilai_baru} (Grade: {grade_baru})")
+            return
+
+    print(f"❌ Error: Mahasiswa '{nama}' tidak ditemukan!")
+
+
+def menu():
+    """Fungsi untuk menampilkan menu utama"""
+    while True:
+        print("\n" + "=" * 50)
+        print("MENU UTAMA - DAFTAR NILAI MAHASISWA")
+        print("=" * 50)
+        print("1. Tambah Data Mahasiswa")
+        print("2. Tampilkan Daftar Nilai")
+        print("3. Ubah Data Mahasiswa")
+        print("4. Hapus Data Mahasiswa")
+        print("5. Keluar")
+        print("=" * 50)
+
+        pilihan = input("Pilih menu (1-5): ").strip()
+
+        if pilihan == "1":
+            tambah()
+        elif pilihan == "2":
+            tampilkan()
+        elif pilihan == "3":
+            tampilkan()
+            nama = input("\nMasukkan nama mahasiswa yang ingin diubah: ").strip()
+            ubah(nama)
+        elif pilihan == "4":
+            tampilkan()
+            nama = input("\nMasukkan nama mahasiswa yang ingin dihapus: ").strip()
+            hapus(nama)
+        elif pilihan == "5":
+            print("\n👋 Terima kasih telah menggunakan program ini!")
+            break
+        else:
+            print("❌ Pilihan tidak valid! Silakan coba lagi.")
+
+
+if __name__ == "__main__":
+    print("\n" + "=" * 50)
+    print("SELAMAT DATANG DI PROGRAM DAFTAR NILAI MAHASISWA")
+    print("=" * 50)
+    menu()
